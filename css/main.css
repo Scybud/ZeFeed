@@ -1,0 +1,120 @@
+/*HOME PAGE*/
+.feed {
+    max-width: 760px;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.summaryCard {
+    background: var(--card);
+    border: 1px solid var(--border);
+
+    color: var(--color);
+    text-decoration: none;
+    border-radius: var(--radius);
+    
+    padding: var(--space-lg);
+    
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.summaryCard:hover {
+    border-color: #2d2d2d;
+    transform: translateY(-2px);
+  }
+
+  .summaryTop {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: var(--space-md);
+}
+
+.source {
+    color: var(--blue);
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+  
+  .dot {
+      color: var(--muted);
+  }
+  
+  .time {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.headline {
+    font-size: 1.3rem;
+    line-height: 1.5;
+    font-weight: 700;
+    
+    margin-bottom: var(--space-md);
+}
+
+.summary {
+    color: #c7c7c7;
+    
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+.summary strong {
+    color: white;
+}
+
+
+/* ARTICLE PAGE */
+
+    .article {
+            display: grid;
+grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));        }
+        .newsCard {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+        }
+       .cardImg {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+        .newsCardContent {
+            margin: var(--space-sm) var(--space-md);
+        }
+        .cardTitle {
+  font-size: 1.2rem;
+      line-height: 1.4;
+      margin-bottom: var(--space-md);
+      font-weight: 700;
+            }
+            .cardSummary {
+                      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.95rem;
+
+      margin-bottom: var(--space-lg);
+
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      line-clamp: 3;
+      -webkit-box-orient: vertical;
+
+      overflow: hidden;
+            }
+              .cardMeta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+padding: 0 var(--space-sm) var(--space-sm);
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
