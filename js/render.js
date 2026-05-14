@@ -12,23 +12,22 @@ export async function loadNewsSummary() {
     return;
   }
 
-
   renderNewsSummary(summaries);
 }
 
 function renderNewsSummary(summaries) {
   const summariesFeed = document.querySelector(".summariesFeed");
-if (!summariesFeed) return;
+  if (!summariesFeed) return;
   summariesFeed.innerHTML = "";
 
-  if(summaries.length === 0) {
-    summariesFeed.innerHTML = `<p class="placeholderText">Nothing new yet.</p>`
+  if (summaries.length === 0) {
+    summariesFeed.innerHTML = `<p class="placeholderText">Nothing new yet.</p>`;
   }
   summaries.forEach((summary) => {
     const card = document.createElement("a");
-card.href = summary.url;
-card.target = "_blank";
-card.rel = "noopener"
+    card.href = summary.url;
+    card.target = "_blank";
+    card.rel = "noopener";
 
     card.classList.add("summaryCard");
 
@@ -50,11 +49,8 @@ card.rel = "noopener"
         `;
 
     summariesFeed.appendChild(card);
-
   });
 }
-
-
 
 export async function loadNewsArticle() {
   const { data: articles, error } = await supabase
@@ -68,25 +64,24 @@ export async function loadNewsArticle() {
     return;
   }
 
-  renderNewsArticles(articles)
+  renderNewsArticles(articles);
 }
 
 function renderNewsArticles(articles) {
-   const articlesFeed = document.querySelector(".articlesFeed");
-if(!articlesFeed) return;
+  const articlesFeed = document.querySelector(".articlesFeed");
+  if (!articlesFeed) return;
 
-   articlesFeed.innerHTML = "";
+  articlesFeed.innerHTML = "";
 
   if (articles.length === 0) {
     articlesFeed.innerHTML = `<p class="placeholderText">Nothing new yet.</p>`;
   }
 
-
   articles.forEach((article) => {
     const card = document.createElement("a");
-   card.href = article.url;
-   card.target = "_blank";
-   card.rel = "noopener";
+    card.href = article.url;
+    card.target = "_blank";
+    card.rel = "noopener";
 
     card.classList.add("articleCard");
 
