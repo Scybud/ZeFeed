@@ -67,7 +67,7 @@ max-width: 100%;
     font-size: 1rem;
     
       display: -webkit-box;
-      -webkit-line-clamp: 10;
+      -webkit-line-clamp: 5;
       line-clamp: 3;
       -webkit-box-orient: vertical;
 
