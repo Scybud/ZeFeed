@@ -55,8 +55,7 @@ function renderNewsSummary(summaries) {
 export async function loadNewsArticle() {
   const { data: articles, error } = await supabase
     .from("articles")
-    .select("source, published_at, title, description, image_url, url")
-    .eq("has_image", true)
+    .select("source, published_at, title, description, image_url, url, has_image")
     .order("published_at", { ascending: false });
 
   if (error) {
@@ -85,25 +84,34 @@ function renderNewsArticles(articles) {
 
     card.classList.add("articleCard");
 
-    card.innerHTML = `
-               <img class="cardImg" loading="lazy" src="${article.image_url}" />
+ card.innerHTML = `
+  ${
+    article.has_image && article.image_url?.trim()
+      ? `
+        <img class="cardImg" loading="lazy" src="${article.image_url}" />
+        <div class="articleCardContent">
+          <h2 class="cardTitle">${article.title}</h2>
+          <p class="cardDesc">${article.description}</p>
+        </div>
+        <div class="cardMeta">
+          <span class="source">${article.source}</span>
+          <span class="time">${formatTimeAgo(article.published_at)}</span>
+        </div>
+      `
+      : `
+        <div class="placeholderImg"></div>
+        <div class="articleCardContent">
+          <h2 class="cardTitle">${article.title}</h2>
+          <p class="cardDesc">${article.description}</p>
+        </div>
+        <div class="cardMeta">
+          <span class="source">${article.source}</span>
+          <span class="time">${formatTimeAgo(article.published_at)}</span>
+        </div>
+      `
+  }
+`;
 
-            <div class="articleCardContent">
-
-              <h2 class="cardTitle">${article.title}</h2>
-
-              <p class="cardDesc">${article.description}</p>
-
-            </div>
-
-            <div class="cardMeta">
-
-                <span class="source">${article.source}</span>
-
-                <span class="time">  ${formatTimeAgo(article.published_at)}</span>
-
-            </div>
-        `;
 
     articlesFeed.appendChild(card);
   });
