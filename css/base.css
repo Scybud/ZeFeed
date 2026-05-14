@@ -5,6 +5,7 @@
       --card-bg: #111;
             --sidebar-bg: #1a1a1a;
             --active: #393838;
+            --hover-bg: rgba(255,255,255,0.06);
 
     --text: #ffffff;
     --muted: #9b9b9b;
@@ -82,7 +83,7 @@ flex-shrink: 0;
             }
             
             .toggleSidebar:hover {
-                background: var(--hover-bg, rgba(255,255,255,0.06));
+                background: var(--hover-bg);
 }
 
 .toggleSidebar:active {

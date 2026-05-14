@@ -85,6 +85,11 @@ gap: var(--space-md);
             border-radius: var(--radius-md);
             color: var(--color);
             text-decoration: none;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .articleCard:hover {
+            transform: translateY(-2px);
+            background: var(--hover-bg);
         }
        .cardImg {
     width: 100%;
