@@ -1,10 +1,66 @@
 import { supabase } from "./supabase.js";
 import { formatTimeAgo } from "./utils/time.js";
 
-async function loadNewsSummary() {
+export async function loadNewsSummary() {
+  const { data: summaries, error } = await supabase
+    .from("articles")
+    .select("source, published_at, title, summary, url")
+    .order("published_at", { ascending: false });
+
+  if (error) {
+    console.error("Error loading news summaries:", error);
+    return;
+  }
+
+
+  renderNewsSummary(summaries);
+}
+
+function renderNewsSummary(summaries) {
+  const summariesFeed = document.querySelector(".summariesFeed");
+if (!summariesFeed) return;
+  summariesFeed.innerHTML = "";
+
+  if(summaries.length === 0) {
+    summariesFeed.innerHTML = `<p class="placeholderText">Nothing new yet.</p>`
+  }
+  summaries.forEach((summary) => {
+    const card = document.createElement("a");
+card.href = summary.url;
+card.target = "_blank";
+card.rel = "noopener"
+
+    card.classList.add("summaryCard");
+
+    card.innerHTML = `
+            <div class="summaryTop">
+                <span class="source">${summary.source}</span>
+                <span class="dot">•</span>
+                <span class="time">  ${formatTimeAgo(summary.published_at)}
+</span>
+            </div>
+
+            <h2 class="headline">
+                ${summary.title}
+            </h2>
+
+            <p class="summary">
+                ${summary.summary}
+            </p>
+        `;
+
+    summariesFeed.appendChild(card);
+
+  });
+}
+
+
+
+export async function loadNewsArticle() {
   const { data: articles, error } = await supabase
     .from("articles")
-    .select("*")
+    .select("source, published_at, title, description, image_url, url")
+    .eq("has_image", true)
     .order("published_at", { ascending: false });
 
   if (error) {
@@ -12,44 +68,48 @@ async function loadNewsSummary() {
     return;
   }
 
-
-  renderArticles(articles);
+  renderNewsArticles(articles)
 }
 
-function renderArticles(articles) {
-  const feed = document.querySelector(".feed");
+function renderNewsArticles(articles) {
+   const articlesFeed = document.querySelector(".articlesFeed");
+if(!articlesFeed) return;
 
-  feed.innerHTML = "";
+   articlesFeed.innerHTML = "";
 
-  if(articles.length === 0) {
-    feed.innerHTML = `<p class="placeholderText">Nothing new yet.</p>`
+  if (articles.length === 0) {
+    articlesFeed.innerHTML = `<p class="placeholderText">Nothing new yet.</p>`;
   }
+
+
   articles.forEach((article) => {
     const card = document.createElement("a");
-card.href = article.url;
+   card.href = article.url;
+   card.target = "_blank";
+   card.rel = "noopener";
 
-    card.classList.add("summaryCard");
+    card.classList.add("articleCard");
 
     card.innerHTML = `
-            <div class="summaryTop">
-                <span class="source">${article.source}</span>
-                <span class="dot">•</span>
-                <span class="time">  ${formatTimeAgo(article.published_at)}
-</span>
+               <img class="cardImg" src="${article.image_url}" />
+
+            <div class="articleCardContent">
+
+              <h2 class="cardTitle">${article.title}</h2>
+
+              <p class="cardDesc">${article.description}</p>
+
             </div>
 
-            <h2 class="headline">
-                ${article.title}
-            </h2>
+            <div class="cardMeta">
 
-            <p class="summary">
-                ${article.summary}
-            </p>
+                <span class="source">${article.source}</span>
+
+                <span class="time">  ${formatTimeAgo(article.published_at)}</span>
+
+            </div>
         `;
 
-    feed.appendChild(card);
-
+    articlesFeed.appendChild(card);
   });
 }
-
-loadNewsSummary();

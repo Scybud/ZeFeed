@@ -1,5 +1,5 @@
 /*HOME PAGE*/
-.feed {
+.summariesFeed {
     max-width: 760px;
     margin: auto;
 
@@ -14,7 +14,7 @@
 
     color: var(--color);
     text-decoration: none;
-    border-radius: var(--radius);
+    border-radius: var(--radius-md);
     
     padding: var(--space-lg);
     
@@ -72,22 +72,26 @@
 
 /* ARTICLE PAGE */
 
-    .article {
+    .articlesFeed {
             display: grid;
-grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));        }
-        .newsCard {
+grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));     
+gap: var(--space-md); 
+  }
+        .articleCard {
             display: flex;
             flex-direction: column;
             overflow: hidden;
             background: var(--card-bg);
-            border-radius: var(--radius);
+            border-radius: var(--radius-);
+            color: var(--color);
+            text-decoration: none;
         }
        .cardImg {
     width: 100%;
     aspect-ratio: 16 / 9;
     object-fit: cover;
 }
-        .newsCardContent {
+        .articleCardContent {
             margin: var(--space-sm) var(--space-md);
         }
         .cardTitle {
@@ -96,7 +100,7 @@ grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));        }
       margin-bottom: var(--space-md);
       font-weight: 700;
             }
-            .cardSummary {
+            .cardDesc {
                       color: var(--muted);
       line-height: 1.7;
       font-size: 0.95rem;
@@ -117,4 +121,5 @@ grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));        }
 padding: 0 var(--space-sm) var(--space-sm);
       color: var(--muted);
       font-size: 0.85rem;
+      margin-top: auto;
     }
