@@ -82,7 +82,7 @@ gap: var(--space-md);
             flex-direction: column;
             overflow: hidden;
             background: var(--card-bg);
-            border-radius: var(--radius-);
+            border-radius: var(--radius-md);
             color: var(--color);
             text-decoration: none;
         }
