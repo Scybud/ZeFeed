@@ -91,7 +91,7 @@ if(!articlesFeed) return;
     card.classList.add("articleCard");
 
     card.innerHTML = `
-               <img class="cardImg" src="${article.image_url}" />
+               <img class="cardImg" loading="lazy" src="${article.image_url}" />
 
             <div class="articleCardContent">
 
