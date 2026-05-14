@@ -1,6 +1,8 @@
 /*HOME PAGE*/
 .summariesFeed {
     max-width: 760px;
+    width: 100%;
+
     margin: auto;
 
     display: flex;
@@ -11,7 +13,7 @@
 .summaryCard {
     background: var(--card);
     border: 1px solid var(--border);
-
+max-width: 100%;
     color: var(--color);
     text-decoration: none;
     border-radius: var(--radius-md);
@@ -63,6 +65,13 @@
     
     line-height: 1.8;
     font-size: 1rem;
+    
+      display: -webkit-box;
+      -webkit-line-clamp: 10;
+      line-clamp: 3;
+      -webkit-box-orient: vertical;
+
+      overflow: hidden;
 }
 
 .summary strong {
