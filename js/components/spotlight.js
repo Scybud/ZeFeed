@@ -51,8 +51,6 @@ function render(p) {
     desc.textContent = p.desc;
     cta.textContent = p.cta;
     cta.href = p.url;
-    card.target = "_blank";
-    card.rel = "noopener";
 
     features.innerHTML = p.points
       .map((point) => `<div class="feature">✓ ${point}</div>`)
