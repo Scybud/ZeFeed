@@ -15,9 +15,9 @@ export function formatTimeAgo(dateString) {
   if (minutes < 60) return `${minutes} minute${minutes === 1 ? "" : "s"} ago`;
   if (hours < 24) return `${hours} hour${hours === 1 ? "" : "s"} ago`;
   if (days < 7) return `${days} day${days === 1 ? "" : "s"} ago`;
-  if (weeks < 4) return `${weeks} week${weeks === 1 ? "" : "s"} ago`;
+  if (days < 30) return `${weeks} week${weeks === 1 ? "" : "s"} ago`;
   if (months < 12) return `${months} month${months === 1 ? "" : "s"} ago`;
-
+  
   // fallback: real date
   return date.toLocaleDateString("en-GB");
 }
