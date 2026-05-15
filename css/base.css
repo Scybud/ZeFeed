@@ -146,3 +146,7 @@ max-width: 100%;
   text-align: center;
   color: var(--muted);
 }
+.mutedText {
+  color: var(--muted);
+  margin-bottom: var(--space-xs);
+}

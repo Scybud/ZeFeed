@@ -17,6 +17,11 @@ export async function loadNewsSummary() {
 
 function renderNewsSummary(summaries) {
   const summariesFeed = document.querySelector(".summariesFeed");
+  const summaryCount = document.querySelector(".summaryCount");
+
+  if(summaryCount) {
+    summaryCount.textContent = summaries.length
+  }
   if (!summariesFeed) return;
   summariesFeed.innerHTML = "";
 
@@ -56,6 +61,7 @@ export async function loadNewsArticle() {
   const { data: articles, error } = await supabase
     .from("articles")
     .select("source, published_at, title, description, image_url, url, has_image")
+    .eq("has_image", true)
     .order("published_at", { ascending: false });
 
   if (error) {
@@ -68,6 +74,11 @@ export async function loadNewsArticle() {
 
 function renderNewsArticles(articles) {
   const articlesFeed = document.querySelector(".articlesFeed");
+    const articleCount = document.querySelector(".articleCount");
+
+    if (articleCount) {
+      articleCount.textContent = articles.length;
+    }
   if (!articlesFeed) return;
 
   articlesFeed.innerHTML = "";
