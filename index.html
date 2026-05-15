@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/main.css" />
+<link rel="stylesheet" href="css/components/spotlight.css">
 
     <!--FAVICONS-->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
@@ -50,9 +51,11 @@
         <h1 class="pageTitle">Quick Briefs</h1>
         <p class="mutedText"><span class="summaryCount">0</span> summaries</p>
 
-        <section class="summariesFeed">
-          <article class="summaryCard">
-            <div class="summaryTop">
+        <div class="mainContentInner">
+
+          <section class="summariesFeed">
+            <article class="summaryCard">
+              <div class="summaryTop">
               <span class="source">TechCrunch</span>
               <span class="dot">•</span>
               <span class="time">2h ago</span>
@@ -85,10 +88,38 @@
             </p>
           </article>
         </section>
-      </div>
-    </main>
+        
+        <section class="infoContainer spotlightWidget">
+          
+  <div class="product-card" id="productCard">
 
-    <script type="module" src="js/app.js"></script>
+  <div class="logo" id="productLogo">L</div>
+
+  <h2 id="productName">LogHue</h2>
+
+  <h3 id="productTitle">
+    Boost your productivity without complexity
+  </h3>
+
+  <p id="productDesc">
+    LogHue is a freemium workspace platform built to help you manage tasks, stay organized, and actually get things done.
+  </p>
+
+  <div id="productFeatures"></div>
+
+  <a href="https://loghue.com" class="btn primary" id="ctaPrimary">
+    Try LogHue
+  </a>
+
+</div>
+  
+</section>
+</div>
+</div>
+</main>
+
+    <script type="module" src="js/app.js" defer></script>
+    <script type="module" src="js/components/spotlight.js"></script>
   </body>
 </html>
 <!--ALHAMDULILLAHI RABBIL AHLAMIN-->
