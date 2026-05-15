@@ -26,7 +26,7 @@ max-width: 100%;
 
 .summaryCard:hover {
     border-color: #2d2d2d;
-    transform: translateY(-2px);
+    background: var(--hover-bg);
   }
 
   .summaryTop {
@@ -42,7 +42,17 @@ max-width: 100%;
     font-size: 0.85rem;
     font-weight: 700;
   }
-  
+  .sourceUrl {
+    display: block;
+    max-width: fit-content;
+    color: var(--primary);
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.sourceUrl:hover {
+    background-color: var(--bg);
+    transform: translateX(4px);
+}
   .dot {
       color: var(--muted);
   }
