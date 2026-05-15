@@ -1,39 +1,35 @@
+import { supabase } from "../supabase.js";
+
 const container = document.querySelector(".infoContainer");
 
 
-const products = [
-    {
-    name: "LogHue",
-    logo: "L",
-    title: "Boost your productivity without complexity",
-    desc: "LogHue is a freemium workspace platform built to help you manage tasks, stay organized, and actually get things done.",
-    points: [
-      "Simple task & workspace system",
-      "Built for focus, not clutter",
-      "Freemium — start free, upgrade later",
-    ],
-    cta: "Try LogHue",
-    url: "https://loghue.com"
-  },
-  {
-    name: "TryTasty",
-    logo: "T",
-    title: "Turn ingredients into snack ideas instantly",
-    desc: "TryTasty helps you discover what to cook or snack based on what you already have at home.",
-    points: [
-      "AI-powered recipe suggestions",
-      "Fast snack ideas in seconds",
-      "Personalized based on ingredients",
-    ],
-    cta: "Try TryTasty",
-    url: "https://trytasty.de"
-  },
-];
-
 let index = 0;
 
+async function loadProducts() {
+
+  const { data: Products, error: productsError } = await supabase
+  .from("spotlight_products")
+  .select("*")
+  .eq("active", true);
+  
+  if (productsError) {
+  console.error("Supabase error:", productsError);
+  return;
+}
+
+if (!Products || Products.length === 0) {
+  console.error("No active spotlight products found");
+  return;
+}
+return Products;
+}
+
+const spotlightProducts = loadProducts();
+
 function render(p) {
-    if (!container) return;
+  
+  if (!container) return;
+
   const card = document.getElementById("productCard");
   const logo = document.getElementById("productLogo");
   const name = document.getElementById("productName");
@@ -42,19 +38,23 @@ function render(p) {
   const features = document.getElementById("productFeatures");
   const cta = document.getElementById("ctaPrimary");
 
+  if (!card || !logo || !name || !title || !desc || !features || !cta) {
+    console.error("Missing DOM elements");
+    return;
+  }
+
   card.classList.add("slide-out");
 
   setTimeout(() => {
-    logo.textContent = p.logo;
-    name.textContent = p.name;
-    title.textContent = p.title;
-    desc.textContent = p.desc;
-    cta.textContent = p.cta;
-    cta.href = p.url;
-
-    features.innerHTML = p.points
-      .map((point) => `<div class="feature">✓ ${point}</div>`)
-      .join("");
+    logo.textContent = p.logo ?? "";
+    name.textContent = p.name ?? "";
+    title.textContent = p.title ?? "";
+    desc.textContent = p.description ?? "";
+    features.innerHTML = Array.isArray(p.features)
+      ? p.features.map((f) => `<div class="feature">✓ ${f}</div>`).join("")
+      : "";
+    cta.textContent = p.cta_text ?? "Learn more";
+    cta.href = p.cta_url ?? "#";
 
     card.classList.remove("slide-out");
     card.classList.add("slide-in");
@@ -63,9 +63,18 @@ function render(p) {
   }, 250);
 }
 
-setInterval(() => {
-  index = (index + 1) % products.length;
-  render(products[index]);
-}, 6000);
+async function initSpotlight() {
+  const spotlightProducts = await loadProducts();
+  if (!spotlightProducts) return;
 
-render(products[0]);
+  // Render first product
+  render(spotlightProducts[0]);
+
+  // Auto-rotate
+  setInterval(() => {
+    index = (index + 1) % spotlightProducts.length;
+    render(spotlightProducts[index]);
+  }, 6000);
+}
+
+initSpotlight();
