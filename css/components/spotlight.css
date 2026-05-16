@@ -28,18 +28,15 @@
 
   border-radius: 20px;
 
-  background:
-    linear-gradient(
-      180deg,
-      rgba(20, 20, 20, 0.98),
-      rgba(12, 12, 12, 0.98)
-    );
+  background: linear-gradient(
+    180deg,
+    rgba(20, 20, 20, 0.98),
+    rgba(12, 12, 12, 0.98)
+  );
 
   border: 1px solid rgba(255, 255, 255, 0.06);
 
-
-  box-shadow:
-    0 10px 40px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
 
   isolation: isolate;
 }
@@ -146,20 +143,14 @@
   align-items: center;
   justify-content: center;
 
-  background:
-    linear-gradient(
-      135deg,
-      var(--primary),
-      #00e676
-    );
+  background: linear-gradient(135deg, var(--primary), #00e676);
 
   color: black;
 
   font-size: 1.1rem;
   font-weight: 800;
 
-  box-shadow:
-    0 10px 20px rgba(0, 191, 99, 0.2);
+  box-shadow: 0 10px 20px rgba(0, 191, 99, 0.2);
 }
 
 #productName {
