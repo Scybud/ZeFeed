@@ -1,6 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@600&display=swap");
+
 :root {
   --bg: #050505;
   --primary: #00bf63;
+  --primary-light: #4ddb97;
   --card: #101010;
   --border: #1c1c1c;
   --card-bg: #111;
@@ -46,8 +49,25 @@ body {
 .toggleSidebar {
   display: none;
 }
+.logo {
+  font-size: 2rem;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 600;
+  text-align: center;
+  margin-top: var(--space-md);
+}
+.logo span {
+  color: var(--primary);
+}
+.divider {
+  background: var(--muted);
+  color: var(--muted);
+  display: block;
+  width: 100%;
+  height: 1px;
+}
 .main {
-max-width: 100%;
+  max-width: 100%;
   height: 100%;
   margin: var(--space-lg) 0;
 }
@@ -111,7 +131,7 @@ max-width: 100%;
     left: 0;
   }
   nav.sidebarNav {
-    margin-top: calc(var(--space-xl) + 12px);
+  margin: var(--space-sm) 0;
   }
   .mainContent {
     margin-left: 0;
@@ -122,7 +142,7 @@ max-width: 100%;
   flex-direction: column;
   gap: var(--space-sm);
   padding: 0 var(--space-xs);
-  margin: var(--space-lg) 0;
+  margin: var(--space-sm) 0;
   width: 100%;
 }
 .navBtn {

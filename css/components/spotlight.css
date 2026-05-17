@@ -12,7 +12,26 @@
   overflow-y: auto;
   overflow-x: hidden;
 }
+.spotlightWidget::-webkit-scrollbar {
+  width: var(--space-sm);
+  height: var(--space-sm);
+    border-radius: var(--radius);
 
+}
+.spotlightWidget::-webkit-scrollbar-track {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #393838;
+  border-radius: var(--radius);
+  border: 2px solid var(--card-bg);
+}
+
+.spotlightWidget::-webkit-scrollbar-thumb:hover {
+  background: #555; /* slightly brighter primary */
+}
 /* MAIN CONTAINER */
 .infoContainer {
   position: sticky;
@@ -74,14 +93,14 @@
 @keyframes slideOut {
   to {
     opacity: 0;
-    transform: translateY(-14px);
+    transform: translateY(-30px);
   }
 }
 
 @keyframes slideIn {
   from {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(30px);
   }
 
   to {
@@ -123,8 +142,9 @@
 .tag {
   background: rgba(0, 153, 255, 0.12);
   backdrop-filter: blur(6px);
-  padding: var(--space-sm) var(--space-md);
+  padding: var(--space-xs);
   font-weight: 700;
+  font-size: 0.7rem;
   width: fit-content;
   color: #00eaff;
   border-radius: var(--radius-lg);
@@ -133,7 +153,7 @@
 }
 
 /* TOP */
-.logo {
+.productLogo {
   width: 52px;
   height: 52px;
 
@@ -143,7 +163,7 @@
   align-items: center;
   justify-content: center;
 
-  background: linear-gradient(135deg, var(--primary), #00e676);
+  background: linear-gradient(135deg, var(--primary-light), #00e676);
 
   color: black;
 
@@ -231,11 +251,13 @@
 }
 
 .primary {
-  background: var(--primary);
-
+  background-color: var(--primary);
+  
   color: black;
 }
-
+.primary:hover {
+  background: var(--primary-light);
+}
 .secondary {
   background: rgba(255, 255, 255, 0.05);
 
@@ -245,7 +267,7 @@
 }
 
 /* MOBILE */
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   .mainContentInner {
     flex-direction: column;
   }
