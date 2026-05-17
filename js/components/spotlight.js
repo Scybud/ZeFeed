@@ -46,7 +46,7 @@ function render(p) {
   card.classList.add("slide-out");
 
   setTimeout(() => {
-    logo.textContent = p.logo ?? "";
+    logo.src = p.logo_url ?? "";
     name.textContent = p.name ?? "";
     title.textContent = p.title ?? "";
     desc.textContent = p.description ?? "";

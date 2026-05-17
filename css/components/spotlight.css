@@ -163,8 +163,6 @@
   align-items: center;
   justify-content: center;
 
-  background: linear-gradient(135deg, var(--primary-light), #00e676);
-
   color: black;
 
   font-size: 1.1rem;
@@ -251,12 +249,13 @@
 }
 
 .primary {
-  background-color: var(--primary);
+  background: #000000;
   
-  color: black;
+  color: #c1c1c1;
+  box-shadow: 0 0 5px #000000;
 }
 .primary:hover {
-  background: var(--primary-light);
+  background: #00000093;
 }
 .secondary {
   background: rgba(255, 255, 255, 0.05);
