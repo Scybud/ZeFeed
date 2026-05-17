@@ -51,7 +51,7 @@ function renderNewsSummary(summaries) {
             <p class="summary">
                 ${summary.summary}
             </p>
-            <a href=${summary.url} class="sourceUrl" target="_blank">Continue reading on ${summary.source} →</a>
+            <a href=${summary.url} class="sourceUrl" target="_blank">Read on ${summary.source} →</a>
         `;
 
     summariesFeed.appendChild(card);
