@@ -29,7 +29,7 @@ function renderNewsSummary(summaries) {
     summariesFeed.innerHTML = `<p class="placeholderText">Nothing new yet.</p>`;
   }
   summaries.forEach((summary) => {
-    const card = document.createElement("a");
+    const card = document.createElement("div");
     card.href = summary.url;
     card.target = "_blank";
     card.rel = "noopener";

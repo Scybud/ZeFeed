@@ -19,7 +19,7 @@
   padding: var(--space-lg);
 
   transition: 0.2s;
-  cursor: pointer;
+  cursor: default;
 }
 
 .summaryCard:hover {
