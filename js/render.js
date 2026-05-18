@@ -5,39 +5,41 @@ import { formatTimeAgo } from "./utils/time.js";
 function buildFeedBlocks(summaries) {
   const blocks = [];
 
-  summaries.forEach((summary, index) => {
+  /* SPLIT ARTICLES */
+
+  const aiNews = [];
+  const normalNews = [];
+
+  summaries.forEach((item) => {
+    const category = (item.category || "").toLowerCase();
+
+    const isAI =
+      category.includes("ai") ||
+      category.includes("artificial intelligence") ||
+      category.includes("machine learning");
+
+    if (isAI) {
+      aiNews.push(item);
+    } else {
+      normalNews.push(item);
+    }
+  });
+
+  /* RENDER NORMAL FEED */
+
+  normalNews.forEach((summary, index) => {
     blocks.push({
       type: "summary",
       data: summary,
     });
 
-    /* INSERT AI RAIL AFTER 4TH SUMMARY */
-    if (index === 1) {
-      const aiNews = summaries.filter((item) => {
-        const text = `
-          ${item.title}
-          ${item.summary}
-        `.toLowerCase();
+    /* INSERT AI RAIL AFTER 4TH NORMAL ARTICLE */
 
-        return (
-          text.includes("ai") ||
-          text.includes("openai") ||
-          text.includes("anthropic") ||
-          text.includes("gemini") ||
-          text.includes("claude") ||
-          text.includes("llm")
-        );
+    if (index === 1 && aiNews.length > 0) {
+      blocks.push({
+        type: "ai-rail",
+        data: aiNews,
       });
-
-      /* CLEANED:
-         prevents empty AI rail from rendering
-      */
-      if (aiNews.length > 0) {
-        blocks.push({
-          type: "ai-rail",
-          data: aiNews.slice(0, 10),
-        });
-      }
     }
   });
 
@@ -185,7 +187,7 @@ function createAIRail(news) {
 export async function loadNewsSummary() {
   const { data: summaries, error } = await supabase
     .from("articles")
-    .select("source, published_at, title, summary, url")
+    .select("source, published_at, title, summary, url, category")
     .order("published_at", { ascending: false });
 
   if (error) {
