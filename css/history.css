@@ -45,19 +45,17 @@
 .flashCardContainer {
   width: 100%;
   height: 450px;
-    perspective: 1000px;
-position: relative;
+  perspective: 1000px;
+  position: relative;
 }
 
 .flashCard {
   width: 100%;
   height: 100%;
 
-  background: var(--card-bg);
-
   border: 1px solid var(--border);
 
-  border-radius: 24px;
+  border-radius: var(--radius-lg);
 
   padding: 28px;
 
@@ -71,13 +69,11 @@ position: relative;
   background:
     radial-gradient(
       circle at top right,
-      rgba(0,255,170,0.08),
+      rgba(0, 255, 170, 0.08),
       transparent 30%
     ),
     var(--card-bg);
-     box-shadow:
-    0 10px 30px rgba(0,0,0,0.35);
-
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
   transition:
     transform 0.25s ease,
     border-color 0.25s ease;
@@ -85,8 +81,7 @@ position: relative;
 .flashCard:hover {
   transform: translateY(-4px);
 
-  border-color:
-    rgba(0,255,170,0.25);
+  border-color: rgba(0, 255, 170, 0.25);
 }
 
 .cardTop,
@@ -108,7 +103,7 @@ position: relative;
 }
 
 .yearBadge {
-  color: #00ff99;
+  color: var(--primary-light);
 }
 
 .historyTitle {
@@ -140,25 +135,26 @@ position: relative;
 
   border-radius: 50%;
   border: 1px solid var(--border);
-
+  font-size: 1.1rem;
   background: transparent;
   color: white;
 
   cursor: pointer;
 }
-
+.cardActions button:hover {
+  background: var(--hover-bg);
+}
 /*TABLE*/
 .tableView {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    overflow-x: auto;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow-x: auto;
 }
 .tableView::-webkit-scrollbar {
   width: var(--space-sm);
   height: var(--space-sm);
-    border-radius: var(--radius);
-
+  border-radius: var(--radius);
 }
 .tableView::-webkit-scrollbar-track {
   background: var(--card-bg);
@@ -169,11 +165,11 @@ position: relative;
 }
 
 .historyTable {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
 .historyTable thead {
-  background: rgba(255,255,255,0.03);
+  background: rgba(255, 255, 255, 0.03);
 }
 .historyTable th {
   padding: 18px 24px;
@@ -183,8 +179,7 @@ position: relative;
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 0.04em;
-    background:
-    rgba(255,255,255,0.02);
+  background: rgba(255, 255, 255, 0.02);
 }
 .historyTable tr {
   border-top: 1px solid var(--border);
@@ -201,10 +196,10 @@ position: relative;
 }
 
 .historyTable tbody tr:hover {
-  background: rgba(255,255,255,0.03);
+  background: rgba(255, 255, 255, 0.03);
 }
 .historyTable td:first-child {
-  color: #00ff99;
+  color: var(--primary-light);
 
   font-weight: 700;
 
@@ -218,7 +213,7 @@ position: relative;
 
   border-radius: 999px;
 
-  background: rgba(168,85,247,0.12);
+  background: rgba(168, 85, 247, 0.12);
 
   color: #c084fc;
 
