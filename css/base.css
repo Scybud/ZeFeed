@@ -4,7 +4,6 @@
   --bg: #050505;
   --primary: #00bf63;
   --primary-light: #4ddb97;
-  --card: #101010;
   --border: #1c1c1c;
   --card-bg: #111;
   --sidebar-bg: #1a1a1a;
@@ -31,21 +30,25 @@
   padding: 0;
   box-sizing: border-box;
 }
+*::-webkit-scrollbar-thumb {
+  background: #393838;
+  border-radius: var(--radius);
+  border: 2px solid var(--card-bg);
+}
 *::selection {
   background: var(--primary-light);
   color: var(--bg);
 }
+
 html {
   width: 100%;
   height: 100dvh;
 }
 body {
-  display: flex;
   background: var(--bg);
   color: var(--text);
   font-family: Inter, sans-serif;
   height: 100%;
-  width: 100%;
 }
 
 .pageTitle {

@@ -6,10 +6,229 @@
   flex-direction: column;
   gap: 20px;
 }
-.flashCardContainer {
-    width: 100%;
-    padding: var(--space-md);
+
+.viewSwitcher {
+  display: flex;
+  gap: 12px;
+
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
+
+.viewBtn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+
+  padding: 10px 16px;
+  border-radius: 999px;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.viewBtn.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.flashcardsView,
+.tableView {
+  display: none;
+}
+
+.activeView {
+  display: block;
+}
+
+.flashCardContainer {
+  width: 100%;
+  height: 450px;
+    perspective: 1000px;
+position: relative;
+}
+
 .flashCard {
+  width: 100%;
+  height: 100%;
+
+  background: var(--card-bg);
+
+  border: 1px solid var(--border);
+
+  border-radius: 24px;
+
+  padding: 28px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(0,255,170,0.08),
+      transparent 30%
+    ),
+    var(--card-bg);
+     box-shadow:
+    0 10px 30px rgba(0,0,0,0.35);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+.flashCard:hover {
+  transform: translateY(-4px);
+
+  border-color:
+    rgba(0,255,170,0.25);
+}
+
+.cardTop,
+.cardBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.yearBadge,
+.categoryBadge {
+  padding: 8px 14px;
+  border-radius: 999px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  border: 1px solid var(--border);
+}
+
+.yearBadge {
+  color: #00ff99;
+}
+
+.historyTitle {
+  font-size: 42px;
+  line-height: 1.1;
+
+  max-width: 600px;
+}
+
+.historyFact {
+  margin-top: 20px;
+
+  font-size: 18px;
+  line-height: 1.7;
+
+  color: var(--text-muted);
+
+  max-width: 600px;
+}
+
+.cardActions {
+  display: flex;
+  gap: 10px;
+}
+
+.cardActions button {
+  width: 44px;
+  height: 44px;
+
+  border-radius: 50%;
+  border: 1px solid var(--border);
+
+  background: transparent;
+  color: white;
+
+  cursor: pointer;
+}
+
+/*TABLE*/
+.tableView {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+}
+.tableView::-webkit-scrollbar {
+  width: var(--space-sm);
+  height: var(--space-sm);
+    border-radius: var(--radius);
+
+}
+.tableView::-webkit-scrollbar-track {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+}
+.tableView::-webkit-scrollbar-thumb:hover {
+  background: #555; /* slightly brighter primary */
+}
+
+.historyTable {
     width: 100%;
+    border-collapse: collapse;
+}
+.historyTable thead {
+  background: rgba(255,255,255,0.03);
+}
+.historyTable th {
+  padding: 18px 24px;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+    background:
+    rgba(255,255,255,0.02);
+}
+.historyTable tr {
+  border-top: 1px solid var(--border);
+}
+.historyTable td {
+  padding: 20px 24px;
+
+  font-size: 15px;
+
+  color: var(--text);
+}
+.historyTable tbody tr {
+  transition: background 0.2s ease;
+}
+
+.historyTable tbody tr:hover {
+  background: rgba(255,255,255,0.03);
+}
+.historyTable td:first-child {
+  color: #00ff99;
+
+  font-weight: 700;
+
+  width: 90px;
+}
+.historyTable td:nth-child(2) {
+  font-weight: 600;
+}
+.categoryChip {
+  padding: 6px 12px;
+
+  border-radius: 999px;
+
+  background: rgba(168,85,247,0.12);
+
+  color: #c084fc;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+.historyTable th,
+.historyTable td {
+  padding: 18px 22px;
+
+  text-align: left;
 }

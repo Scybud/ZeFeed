@@ -7,7 +7,8 @@
 
 /* WIDGET WRAPPER */
 .spotlightWidget {
-  width: 320px;
+  width: 100%;
+  max-width: 450px;
   max-height: 500px;
   overflow-y: auto;
   overflow-x: hidden;
@@ -21,12 +22,6 @@
 .spotlightWidget::-webkit-scrollbar-track {
   background: var(--card-bg);
   border-radius: var(--radius);
-}
-
-*::-webkit-scrollbar-thumb {
-  background: #393838;
-  border-radius: var(--radius);
-  border: 2px solid var(--card-bg);
 }
 
 .spotlightWidget::-webkit-scrollbar-thumb:hover {

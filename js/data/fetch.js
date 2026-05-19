@@ -18,3 +18,10 @@ export async function fetchSummaries() {
     .select("source, published_at, title, summary, url, category")
     .order("published_at", { ascending: false });
 }
+
+//FETCH HISTORIES
+export async function fetchHistories() {
+  return await supabase
+  .from("tech_history_cards")
+  .select("title, fact, category, year, source");
+}

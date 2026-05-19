@@ -1,5 +1,5 @@
 /*HOME PAGE*/
-.summariesFeed, .historiesFeed {
+.summariesFeed {
   max-width: 760px;
   width: 100%;
 
@@ -95,7 +95,7 @@
 }
 
 .summaryCard {
-  background: var(--card);
+  background: var(--card-bg);
   border: 1px solid var(--border);
   max-width: 100%;
   color: var(--color);
