@@ -1,0 +1,15 @@
+.historiesFeed {
+  max-width: 760px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.flashCardContainer {
+    width: 100%;
+    padding: var(--space-md);
+}
+.flashCard {
+    width: 100%;
+}
