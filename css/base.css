@@ -217,11 +217,17 @@ animation: shimer 1s ease infinite;
 .skeletonTime {
     padding: var(--space-sm) var(--space-lg);
 }
-.skeletonHeadline {
+.skeletonArticleCardContent {
+ margin: var(--space-sm);
+}
+.skeletonHeadline, .skeletonCardTitle {
     margin-bottom: var(--space-md);
 padding: var(--space-lg) var(--space-sm);
 }
-.skeletonSummary {
+p.skeletonCardDesc {
+  margin: 0;
+}
+.skeletonSummary, .skeletonCardDesc {
       margin-bottom: var(--space-md);
 padding: calc(var(--space-xl) * 2) var(--space-sm);
 }
