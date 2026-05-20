@@ -17,10 +17,20 @@ export function renderHistoryCard() {
   }
 
   historyTitle.textContent = history.title;
+  historyTitle.classList.remove("skeletonItem")
+
   historyFact.textContent = history.fact;
+    historyFact.classList.remove("skeletonItem");
+
   yearBadge.textContent = history.year;
+    yearBadge.classList.remove("skeletonItem");
+
   categoryBadge.textContent = history.category;
+    categoryBadge.classList.remove("skeletonItem");
+
   source.textContent = history.source;
+    source.classList.remove("skeletonItem");
+
 }
 
 export function initHistories(histories) {
