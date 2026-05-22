@@ -29,11 +29,11 @@
 .railTrack::-webkit-scrollbar {
   width: var(--space-sm);
   height: var(--space-sm);
-  border-radius: var(--radius);
+  border-radius: var(--radius-sm);
 }
 .railTrack::-webkit-scrollbar-track {
-  background: var(--card-bg);
-  border-radius: var(--radius);
+  background: var(--surface-secondary);
+  border-radius: var(--radius-sm);
 }
 
 .railTrack::-webkit-scrollbar-thumb:hover {
@@ -50,7 +50,7 @@
 
   border: 1px solid var(--border-color);
 
-  background: var(--card-bg);
+  background: var(--surface-secondary);
 
   cursor: pointer;
 
@@ -80,7 +80,7 @@
   height: 38px;
   border-radius: 50%;
   border: 1px solid var(--border);
-  background: var(--card-bg);
+  background: var(--surface-primary);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -95,7 +95,7 @@
 }
 
 .summaryCard {
-  background: var(--card-bg);
+  background: var(--surface-secondary);
   border: 1px solid var(--border);
   max-width: 100%;
   color: var(--color);
@@ -109,7 +109,7 @@
 }
 
 .summaryCard:hover {
-  border-color: #2d2d2d;
+  border-color: var(--border);
   background: var(--hover-bg);
 }
 
@@ -159,7 +159,7 @@
 }
 
 .summary {
-  color: #c7c7c7;
+  color: var(--text-secondary);
   line-height: 1.5;
   font-size: 0.95rem;
   display: -webkit-box;
@@ -170,5 +170,5 @@
 }
 
 .summary strong {
-  color: white;
+  color: var(--text-primary);
 }

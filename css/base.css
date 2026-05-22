@@ -1,28 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@600&display=swap");
 
 :root {
-  --bg: #050505;
   --primary: #00bf63;
   --primary-light: #4ddb97;
-  --border: #1c1c1c;
-  --card-bg: #111;
-  --sidebar-bg: #1a1a1a;
-  --active: #393838;
-  --hover-bg: rgba(255, 255, 255, 0.06);
 
-  --text: #ffffff;
-  --muted: #9b9b9b;
   --blue: #4ea1ff;
-
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 28px;
-
-  --space-xs: 4px;
-  --space-sm: 8px;
-  --space-md: 16px;
-  --space-lg: 24px;
-  --space-xl: 32px;
 }
 
 * {
@@ -37,7 +19,7 @@
 }
 *::selection {
   background: var(--primary-light);
-  color: var(--bg);
+  color: var(--bg--primary-primary);
 }
 
 html {
@@ -45,9 +27,9 @@ html {
   height: 100dvh;
 }
 body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: Inter, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-primary);
   height: 100%;
 }
 
@@ -67,6 +49,7 @@ body {
 .logo span {
   color: var(--primary);
 }
+
 .divider {
   background: var(--muted);
   color: var(--muted);
@@ -88,7 +71,7 @@ body {
   width: 260px;
   flex-shrink: 0;
   height: 100%;
-  background: var(--sidebar-bg);
+  background: var(--surface-primary);
   position: fixed;
   top: 0;
   left: 0;
@@ -106,7 +89,7 @@ body {
     width: 38px;
     height: 38px;
     border: none;
-    background: var(--bg);
+    background: var(--bg--primary);
     color: var(--color);
     border-radius: 8px;
     cursor: pointer;

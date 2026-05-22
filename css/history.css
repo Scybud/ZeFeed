@@ -18,7 +18,7 @@
 .viewBtn {
   background: transparent;
   border: 1px solid var(--border);
-  color: var(--text-muted);
+  color: var(--muted);
 
   padding: 10px 16px;
   border-radius: 999px;
@@ -28,9 +28,10 @@
 }
 
 .viewBtn.active {
-  background: var(--accent);
-  color: white;
-  border-color: var(--accent);
+  background: var(--primary);
+  color: #000;
+  font-weight: 600;
+  border-color: var(--primary);
 }
 
 .flashcardsView,
@@ -119,7 +120,7 @@
   font-size: 18px;
   line-height: 1.7;
 
-  color: var(--text-muted);
+  color: var(--muted);
 
   max-width: 600px;
 }
@@ -137,7 +138,7 @@
   border: 1px solid var(--border);
   font-size: 1.1rem;
   background: transparent;
-  color: white;
+  color: var(--text-primary);
 
   cursor: pointer;
 }
@@ -146,7 +147,7 @@
 }
 /*TABLE*/
 .tableView {
-  background: var(--card-bg);
+  background: var(--surface-secondary);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   overflow-x: auto;
@@ -154,11 +155,11 @@
 .tableView::-webkit-scrollbar {
   width: var(--space-sm);
   height: var(--space-sm);
-  border-radius: var(--radius);
+  border-radius: var(--radius-sm);
 }
 .tableView::-webkit-scrollbar-track {
   background: var(--card-bg);
-  border-radius: var(--radius);
+  border-radius: var(--radius-sm);
 }
 .tableView::-webkit-scrollbar-thumb:hover {
   background: #555; /* slightly brighter primary */
@@ -189,7 +190,7 @@
 
   font-size: 15px;
 
-  color: var(--text);
+  color: var(--text-primary);
 }
 .historyTable tbody tr {
   transition: background 0.2s ease;
