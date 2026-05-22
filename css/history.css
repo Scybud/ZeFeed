@@ -11,8 +11,7 @@
   display: flex;
   gap: 12px;
 
-  margin-top: 24px;
-  margin-bottom: 24px;
+  margin: var(--space-sm) 0;
 }
 
 .viewBtn {
@@ -20,7 +19,7 @@
   border: 1px solid var(--border);
   color: var(--muted);
 
-  padding: 10px 16px;
+  padding: var(--space-sm) var(--space-md);
   border-radius: 999px;
 
   cursor: pointer;
