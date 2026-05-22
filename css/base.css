@@ -19,7 +19,7 @@
 }
 *::selection {
   background: var(--primary-light);
-  color: var(--bg--primary-primary);
+  color: var(--bg-primary);
 }
 
 html {
