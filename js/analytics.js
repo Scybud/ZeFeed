@@ -21,25 +21,32 @@ export function loadAnalytics() {
 
 export function handleConcentEvents() {
   const consentBanner = document.getElementById("consentBanner");
+  const editConcentBtn = document.getElementById("editConcentBtn");
 
-  // Banner buttons (now guaranteed to exist)
+  // Edit preferences
+  if (editConcentBtn) {
+    editConcentBtn.addEventListener("click", () => {
+      localStorage.removeItem("consent-preferences");
+      document.body.appendChild(consentBanner);
+      editConcentBtn.remove();
+    });
+  }
+
   const acceptBtn = document.getElementById("acceptConcent");
   const rejectBtn = document.getElementById("rejectConcent");
 
-  // Accept All
-  if (!acceptBtn) return;
+  if (!acceptBtn || !rejectBtn) return;
+
   acceptBtn.addEventListener("click", () => {
     localStorage.setItem("consent-preferences", "allows tracking");
-
     loadAnalytics();
-    if (consentBanner) consentBanner.remove();
+    consentBanner.remove();
+    document.body.appendChild(editConcentBtn);
   });
 
-  // Reject All
   rejectBtn.addEventListener("click", () => {
     localStorage.setItem("consent-preferences", "rejects tracking");
-
-    if (consentBanner) consentBanner.remove();
+    consentBanner.remove();
+    document.body.appendChild(editConcentBtn);
   });
-
 }

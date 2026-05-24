@@ -2,19 +2,31 @@ import { handleSidebarToggle } from "./utils/toggle.js";
 import { loadAnalytics, handleConcentEvents } from "./analytics.js";
 
 
-window.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("DOMContentLoaded", async () => {
 
   handleSidebarToggle();
 
   //ANALYTICS
-handleConcentEvents()
+handleConcentEvents();
 
-  const saved = localStorage.getItem("consent-preferences");
-  if (saved) {
-    const prefs = saved;
-    const consentBanner = document.getElementById("consentBanner");
-    if (consentBanner) consentBanner.remove();
-    
-    if (prefs === "allows tracking") loadAnalytics();
-  }
+const saved = localStorage.getItem("consent-preferences");
+const consentBanner = document.getElementById("consentBanner");
+const editConcentBtn = document.getElementById("editConcentBtn");
+
+if (saved) {
+  // Hide banner
+  if (consentBanner) consentBanner.remove();
+
+  // Show edit button
+  document.body.appendChild(editConcentBtn);
+
+  if (saved === "allows tracking") loadAnalytics();
+} else {
+  // Show banner
+  document.body.appendChild(consentBanner);
+
+  // Hide edit button
+  editConcentBtn.remove();
+}
+
 });
