@@ -139,7 +139,7 @@
     transform 0.3s ease;
 }
 .sourceUrl:hover {
-  background-color: var(--bg);
+  background-color: var(--bg-primary);
   transform: translateX(4px);
 }
 .dot {
