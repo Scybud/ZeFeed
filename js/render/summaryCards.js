@@ -1,9 +1,12 @@
 import { formatTimeAgo } from "../utils/time.js";
 
+
 export function createSummaryCard(summary) {
   const card = document.createElement("article");
   card.classList.add("summaryCard");
 
+  const summaryUrl = addUtm(summary.url);
+  
   card.innerHTML = `
     <div class="summaryTop">
       <span class="source">${summary.source}</span>
@@ -15,10 +18,25 @@ export function createSummaryCard(summary) {
 
     <p class="summary">${summary.summary || "No summary available."}</p>
 
-    <a href="${summary.url}" class="sourceUrl" target="_blank" rel="noopener">
-      Read on ${summary.source} →
-    </a>
+
+    ${
+      summaryUrl
+        ? `<a href="${summaryUrl}" class="sourceUrl" target="_blank" rel="noopener">
+             Read on ${summary.source} →
+           </a>`
+        : `<span class="sourceUrl disabled">No link available</span>`
+    }
   `;
 
   return card;
+}
+
+
+function addUtm(url) {
+  if (!url) return null;
+
+  const hasQuery = url.includes("?");
+  const separator = hasQuery ? "&" : "?";
+
+  return `${url}${separator}utm_source=zefeed`;
 }

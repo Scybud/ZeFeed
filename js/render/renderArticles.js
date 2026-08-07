@@ -1,5 +1,15 @@
 import { formatTimeAgo } from "../utils/time.js";
 
+
+function addUtm(url) {
+  if (!url) return null;
+
+  const hasQuery = url.includes("?");
+  const separator = hasQuery ? "&" : "?";
+
+  return `${url}${separator}utm_source=zefeed`;
+}
+
 export function renderNewsArticles(articles) {
   const feed = document.querySelector(".articlesFeed");
   const count = document.querySelector(".articleCount");
@@ -17,9 +27,14 @@ export function renderNewsArticles(articles) {
 
   articles.forEach((article) => {
     const card = document.createElement("a");
-    card.href = article.url;
-    card.target = "_blank";
-    card.rel = "noopener";
+
+    const articleUrl = addUtm(article.url);
+    if (articleUrl) {
+      card.href = articleUrl;
+      card.target = "_blank";
+      card.rel = "noopener";
+    }
+
     card.classList.add("articleCard");
 
     card.innerHTML = `
