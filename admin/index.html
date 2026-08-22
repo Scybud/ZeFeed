@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ZeFeed | History Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://scybud.github.io/scybud-ui/css/variables.css"
+    />
+
+    <link rel="stylesheet" href="admin.css">
+  </head>
+  <body>
+    <div class="loginScreen" id="loginScreen">
+      <div class="loginCard">
+        <div class="logo">Ze<span>Feed</span></div>
+        <p class="mutedText">Sign in to the history dashboard</p>
+        <form id="loginForm">
+          <label for="login-email">Email</label>
+          <input
+            type="email"
+            id="login-email"
+            autocomplete="username"
+            required
+          />
+          <label for="login-password">Password</label>
+          <input
+            type="password"
+            id="login-password"
+            autocomplete="current-password"
+            required
+          />
+          <p class="err" id="login-err"></p>
+          <button type="submit" class="btn primary" id="login-submit-btn">
+            Sign in
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="app" id="dashboardApp" hidden>
+      <header>
+        <div>
+          <div class="logo">Ze<span>Feed</span></div>
+          <p class="mutedText">History dashboard</p>
+        </div>
+        <div class="headerRight">
+          <div class="stats">
+            <div class="stat">
+              <span class="num" id="stat-entities">0</span
+              ><span class="lbl">Entities</span>
+            </div>
+            <div class="stat">
+              <span class="num" id="stat-cards">0</span
+              ><span class="lbl">Cards</span>
+            </div>
+            <div class="stat">
+              <span class="num" id="stat-range">-</span
+              ><span class="lbl">Year range</span>
+            </div>
+          </div>
+          <div class="sessionInfo">
+            <span class="email" id="session-email"></span>
+            <button id="signout-btn" type="button">Sign out</button>
+          </div>
+        </div>
+      </header>
+
+      <div class="viewSwitcher">
+        <button class="viewBtn active" id="tab-btn-history">
+          History cards
+        </button>
+        <button class="viewBtn" id="tab-btn-entities">Entities</button>
+      </div>
+
+      <p
+        class="err"
+        id="global-err"
+        style="display: none; margin-bottom: var(--space-md)"
+      ></p>
+
+      <section id="view-history">
+        <div class="panel">
+          <h2 id="card-form-heading">Add a history card</h2>
+          <form id="card-form">
+            <input type="hidden" id="card-edit-id" value="" />
+            <div class="form-row three">
+              <div>
+                <label for="c-title">Title</label>
+                <input
+                  type="text"
+                  id="c-title"
+                  placeholder="e.g. Apple II hits the market"
+                />
+              </div>
+              <div>
+                <label for="c-year">Year</label>
+                <input type="number" id="c-year" placeholder="e.g. 1977" />
+              </div>
+              <div>
+                <label for="c-category">Category</label>
+                <input
+                  type="text"
+                  id="c-category"
+                  list="category-list"
+                  placeholder="e.g. computing"
+                />
+                <datalist id="category-list"></datalist>
+              </div>
+            </div>
+            <div class="form-row wide">
+              <div>
+                <label for="c-fact">Fact</label>
+                <textarea
+                  id="c-fact"
+                  placeholder="One or two sentences on what happened"
+                ></textarea>
+              </div>
+            </div>
+            <div class="form-row">
+              <div>
+                <label for="c-entity">Entity</label>
+                <input
+                  type="text"
+                  id="c-entity"
+                  list="entity-name-list"
+                  placeholder="e.g. Apple"
+                />
+                <datalist id="entity-name-list"></datalist>
+                <div class="hint">
+                  Matches an existing entity by name, or creates a new one if it
+                  doesn't exist yet.
+                </div>
+              </div>
+              <div>
+                <label for="c-source">Source (optional)</label>
+                <input
+                  type="text"
+                  id="c-source"
+                  placeholder="e.g. NASA, Reuters"
+                />
+              </div>
+            </div>
+            <div class="err" id="card-err"></div>
+            <div class="form-actions">
+              <button type="submit" class="btn primary" id="card-submit-btn">
+                Add card
+              </button>
+              <button
+                type="button"
+                class="btn ghost"
+                id="card-cancel-btn"
+                style="display: none"
+              >
+                Cancel edit
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="toolbar">
+          <input
+            type="text"
+            class="search"
+            id="h-search"
+            placeholder="Search title or fact"
+          />
+          <select id="h-category-filter">
+            <option value="">All categories</option>
+          </select>
+          <select id="h-sort">
+            <option value="year-desc">Newest first</option>
+            <option value="year-asc">Oldest first</option>
+            <option value="title-asc">Title A-Z</option>
+          </select>
+          <div class="exports">
+            <button class="btn ghost" id="export-cards-btn">
+              Export cards CSV
+            </button>
+          </div>
+        </div>
+
+        <div class="card-grid" id="card-grid"></div>
+        <p class="placeholderText" id="card-empty" style="display: none">
+          No history cards match this filter.
+        </p>
+      </section>
+
+      <section id="view-entities" style="display: none">
+        <div class="panel">
+          <h2 id="entity-form-heading">Add an entity</h2>
+          <form id="entity-form">
+            <input type="hidden" id="e-edit-id" value="" />
+            <div class="form-row three">
+              <div>
+                <label for="e-name">Name</label>
+                <input type="text" id="e-name" placeholder="e.g. Apple" />
+              </div>
+              <div>
+                <label for="e-type">Type</label>
+                <input
+                  type="text"
+                  id="e-type"
+                  list="type-list"
+                  placeholder="e.g. company"
+                />
+                <datalist id="type-list"></datalist>
+              </div>
+              <div>
+                <label for="e-slug">Slug</label>
+                <input type="text" id="e-slug" placeholder="auto-generated" />
+              </div>
+            </div>
+            <div class="err" id="entity-err"></div>
+            <div class="form-actions">
+              <button type="submit" class="btn primary" id="entity-submit-btn">
+                Add entity
+              </button>
+              <button
+                type="button"
+                class="btn ghost"
+                id="entity-cancel-btn"
+                style="display: none"
+              >
+                Cancel edit
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="toolbar">
+          <input
+            type="text"
+            class="search"
+            id="e-search"
+            placeholder="Search entities"
+          />
+          <div class="exports">
+            <button class="btn ghost" id="export-entities-btn">
+              Export entities CSV
+            </button>
+          </div>
+        </div>
+
+        <div class="tableWrap">
+          <table class="entTable">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Slug</th>
+                <th>Cards</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="entity-tbody"></tbody>
+          </table>
+        </div>
+        <p class="placeholderText" id="entity-empty" style="display: none">
+          No entities match this search.
+        </p>
+      </section>
+    </div>
+
+    <script type="module" src="admin.js" defer></script>
+  </body>
+</html>
