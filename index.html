@@ -108,7 +108,22 @@
       </aside>
 
       <div class="mainContent">
-        <h1 class="pageTitle">Quick Briefs</h1>
+        <div class="contentHeader">
+          <h1 class="pageTitle">Quick Briefs</h1>
+
+          <div id="audio-reader-bar">
+            <div class="audioControl">
+              <button id="reader-prev-btn" class="audioControlBtn" aria-label="Previous article">⏮</button>
+              <button id="reader-play-btn" class="primary audioControlBtn" aria-label="Play news reader">▶</button>
+              <button id="reader-next-btn" class="audioControlBtn" aria-label="Next article">⏭</button>
+              <span id="reader-position"></span>
+            </div>
+
+            <div class="audioMeta">
+              <a href="#" id="reader-title"></a>
+            </div>
+</div>
+        </div>
         <p class="mutedText"><span class="summaryCount">Loading...</span> summaries</p>
 
         <div class="mainContentInner">

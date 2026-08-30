@@ -3,6 +3,7 @@ import { formatTimeAgo } from "../utils/time.js";
 
 export function createSummaryCard(summary) {
   const card = document.createElement("article");
+  card.id = summary.id;
   card.classList.add("summaryCard");
 
   const summaryUrl = addUtm(summary.url);

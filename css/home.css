@@ -8,6 +8,64 @@
   gap: 20px;
 }
 
+.contentHeader {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+#audio-reader-bar {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+}
+.audioControl {
+  align-self: flex-end;
+  max-width: fit-content;
+  background: var(--surface-primary);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-lg);
+}
+.audioControlBtn {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border-primary);
+}
+#reader-prev-btn, #reader-next-btn {
+  background: var(--secondary);
+  color: var(--text-primary);
+}
+#reader-play-btn {
+  background: var(--primary);
+  color: #000;
+}
+#reader-play-btn:hover {
+  background: var(--primary-light);
+}
+.audioMeta {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 150px;
+  align-self: flex-end;
+  transition: width 0.5s ease;
+}
+.audioMeta:hover {
+  width: 600px;
+  max-width: fit-content;
+}
+#reader-title {
+    display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: var(--text-secondary);
+}
 .aiNewsRail {
   margin: 1.5rem 0;
 

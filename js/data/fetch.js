@@ -15,7 +15,7 @@ export async function fetchArticles() {
 export async function fetchSummaries() {
   return await supabase
     .from("articles")
-    .select("source, published_at, title, summary, url, category")
+    .select("id, source, published_at, title, summary, url, category")
     .order("published_at", { ascending: false });
 }
 
