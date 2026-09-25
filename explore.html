@@ -4,75 +4,107 @@
 
 <html lang="en">
   <head>
-    
     <meta charset="UTF-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Explore | ZeFeed</title>
 
-        <link rel="stylesheet" href="https://scybud.github.io/scybud-ui/css/variables.css">
+    <link rel="stylesheet" href="https://ui.scybud.com/css/variables.css" />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/explore.css" />
-<link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.css" />
 
+    <!--FAVICONS-->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/favicons/favicon-16x16.png"
+    />
 
-        <!--FAVICONS-->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Explore Tech News | ZeFeed" />
+    <meta
+      name="description"
+      content="Stay updated with fast, clean tech summaries, images, and insights covering AI, startups, gadgets, cybersecurity, and more."
+    />
+    <meta
+      name="keywords"
+      content="tech news, explore tech, AI news, gadget updates, startup news, cybersecurity news, technology summaries, ZeFeed explore"
+    />
+    <meta name="author" content="ZeFeed" />
 
-<!-- Primary Meta Tags -->
-<meta name="title" content="Explore Tech News | ZeFeed">
-<meta name="description" content="Stay updated with fast, clean tech summaries, images, and insights covering AI, startups, gadgets, cybersecurity, and more.">
-<meta name="keywords" content="tech news, explore tech, AI news, gadget updates, startup news, cybersecurity news, technology summaries, ZeFeed explore">
-<meta name="author" content="ZeFeed">
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://zefeed.vercel.app/explore" />
 
-<!-- Canonical URL -->
-<link rel="canonical" href="https://zefeed.vercel.app/explore">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://zefeed.vercel.app/explore" />
+    <meta property="og:title" content="Explore Tech News | ZeFeed" />
+    <meta
+      property="og:description"
+      content="Discover the latest tech stories with clean summaries and visuals from across the web."
+    />
+    <meta
+      property="og:image"
+      content="https://zefeed.vercel.app/assets/images/zefeed-logo.png"
+    />
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://zefeed.vercel.app/explore">
-<meta property="og:title" content="Explore Tech News | ZeFeed">
-<meta property="og:description" content="Discover the latest tech stories with clean summaries and visuals from across the web.">
-<meta property="og:image" content="https://zefeed.vercel.app/assets/images/zefeed-logo.png">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://zefeed.vercel.app/explore" />
+    <meta name="twitter:title" content="Explore Tech News | ZeFeed" />
+    <meta
+      name="twitter:description"
+      content="Explore trending tech news with summaries, images, and fast insights."
+    />
+    <meta
+      name="twitter:image"
+      content="https://zefeed.vercel.app/assets/images/zefeed-logo.png"
+    />
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://zefeed.vercel.app/explore">
-<meta name="twitter:title" content="Explore Tech News | ZeFeed">
-<meta name="twitter:description" content="Explore trending tech news with summaries, images, and fast insights.">
-<meta name="twitter:image" content="https://zefeed.vercel.app/assets/images/zefeed-logo.png">
+    <!-- Robots -->
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="googlebot"
+      content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+    />
 
-<!-- Robots -->
-<meta name="robots" content="index, follow">
-<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#000000" />
 
-<!-- Theme Color -->
-<meta name="theme-color" content="#000000">
-
-<!-- Structured Data: Collection Page -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "name": "Explore Tech News | ZeFeed",
-  "url": "https://zefeed.vercel.app/explore",
-  "description": "A curated feed of tech news summaries with images, titles, and descriptions from trusted sources.",
-  "image": "https://zefeed.vercel.app/assets/images/zefeed-logo.png",
-  "publisher": {
-    "@type": "Organization",
-    "name": "ZeFeed",
-    "url": "https://zefeed.vercel.app",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://zefeed.vercel.app/assets/images/zefeed-logo.png"
-    }
-  }
-}
-</script>
-
+    <!-- Structured Data: Collection Page -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Explore Tech News | ZeFeed",
+        "url": "https://zefeed.vercel.app/explore",
+        "description": "A curated feed of tech news summaries with images, titles, and descriptions from trusted sources.",
+        "image": "https://zefeed.vercel.app/assets/images/zefeed-logo.png",
+        "publisher": {
+          "@type": "Organization",
+          "name": "ZeFeed",
+          "url": "https://zefeed.vercel.app",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://zefeed.vercel.app/assets/images/zefeed-logo.png"
+          }
+        }
+      }
+    </script>
   </head>
 
   <body>
@@ -96,15 +128,15 @@
 
     <main class="main">
       <aside class="sidebar">
-     <header class="sidebarHeader">
+        <header class="sidebarHeader">
           <div class="logo">Ze<span>Feed</span></div>
         </header>
-<div class="divider"></div> 
+        <div class="divider"></div>
 
         <nav class="sidebarNav">
-          <a href="index.html" class="navBtn">Home</a>
+          <a href="home.html" class="navBtn">Home</a>
           <a href="explore.html" class="navBtn">Explore</a>
-                    <a href="history.html" class="navBtn">Histories</a>
+          <a href="history.html" class="navBtn">Histories</a>
         </nav>
       </aside>
 
@@ -112,44 +144,20 @@
 
       <article class="mainContent">
         <h1 class="pageTitle">Explore Tech</h1>
-        <p class="mutedText"><span class="articleCount">Loading...</span> articles</p>
+        <p class="mutedText">
+          <span class="articleCount">Loading...</span> articles
+        </p>
 
         <section class="articlesFeed">
           <!--NEWS-->
 
           <div class="articleCard">
-            <div
-              class="cardImg skeletonItem"
-            ></div>
+            <div class="cardImg skeletonItem"></div>
 
             <div class="skeletonArticleCardContent">
-              <h2 class="skeletonCardTitle skeletonItem">
-              </h2>
+              <h2 class="skeletonCardTitle skeletonItem"></h2>
 
-              <p class="skeletonCardDesc skeletonItem">
-               
-              </p>
-            </div>
-
-            <div class="cardMeta">
-              <span class="skeletonSource skeletonItem"></span>
-
-              <span class="skeletonTime skeletonItem"></span>
-            </div>
-          </div>
-          
-           <div class="articleCard">
-            <div
-              class="cardImg skeletonItem"
-            ></div>
-
-            <div class="skeletonArticleCardContent">
-              <h2 class="skeletonCardTitle skeletonItem">
-              </h2>
-
-              <p class="skeletonCardDesc skeletonItem">
-               
-              </p>
+              <p class="skeletonCardDesc skeletonItem"></p>
             </div>
 
             <div class="cardMeta">
@@ -159,18 +167,13 @@
             </div>
           </div>
 
-           <div class="articleCard">
-            <div
-              class="cardImg skeletonItem"
-            ></div>
+          <div class="articleCard">
+            <div class="cardImg skeletonItem"></div>
 
             <div class="skeletonArticleCardContent">
-              <h2 class="skeletonCardTitle skeletonItem">
-              </h2>
+              <h2 class="skeletonCardTitle skeletonItem"></h2>
 
-              <p class="skeletonCardDesc skeletonItem">
-               
-              </p>
+              <p class="skeletonCardDesc skeletonItem"></p>
             </div>
 
             <div class="cardMeta">
@@ -180,18 +183,29 @@
             </div>
           </div>
 
-           <div class="articleCard">
-            <div
-              class="cardImg skeletonItem"
-            ></div>
+          <div class="articleCard">
+            <div class="cardImg skeletonItem"></div>
 
             <div class="skeletonArticleCardContent">
-              <h2 class="skeletonCardTitle skeletonItem">
-              </h2>
+              <h2 class="skeletonCardTitle skeletonItem"></h2>
 
-              <p class="skeletonCardDesc skeletonItem">
-               
-              </p>
+              <p class="skeletonCardDesc skeletonItem"></p>
+            </div>
+
+            <div class="cardMeta">
+              <span class="skeletonSource skeletonItem"></span>
+
+              <span class="skeletonTime skeletonItem"></span>
+            </div>
+          </div>
+
+          <div class="articleCard">
+            <div class="cardImg skeletonItem"></div>
+
+            <div class="skeletonArticleCardContent">
+              <h2 class="skeletonCardTitle skeletonItem"></h2>
+
+              <p class="skeletonCardDesc skeletonItem"></p>
             </div>
 
             <div class="cardMeta">
@@ -204,30 +218,51 @@
       </article>
 
       <!--CONCENT BANNER-->
-<div id="consentBanner" class="consentBanner">
-  <div class="consent-content">
-    <h3>We use cookies</h3>
-    <p>
-      We use cookies to improve your experience, analyze usage, and enhance our services.
-      You can choose what you allow.
-    </p>
+      <div id="consentBanner" class="consentBanner">
+        <div class="consent-content">
+          <h3>We use cookies</h3>
+          <p>
+            We use cookies to improve your experience, analyze usage, and
+            enhance our services. You can choose what you allow.
+          </p>
 
-    <div class="consent-actions">
-      <button id="acceptConcent" class="btn-sm btn primary">Accept All</button>
-      <button id="rejectConcent" class="btn-sm btn secondary">Reject All</button>
-    </div>
-  </div>
-</div>
+          <div class="consent-actions">
+            <button id="acceptConcent" class="btn-sm btn primary">
+              Accept All
+            </button>
+            <button id="rejectConcent" class="btn-sm btn secondary">
+              Reject All
+            </button>
+          </div>
+        </div>
+      </div>
 
-<button title="Edit consent choice" class="editConcentBtn" id="editConcentBtn" type="button">
-<svg class="cookieIcon" width="32" height="32" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="60" cy="60" r="36" stroke="white" stroke-width="6"/>
-  <path d="M90 60a30 30 0 0 1-30 30" stroke="white" stroke-width="6" stroke-linecap="round"/>
-  <circle cx="50" cy="50" r="4" fill="white"/>
-  <circle cx="70" cy="45" r="4" fill="white"/>
-  <circle cx="68" cy="70" r="4" fill="white"/>
-</svg>
-</button>
+      <button
+        title="Edit consent choice"
+        class="editConcentBtn"
+        id="editConcentBtn"
+        type="button"
+      >
+        <svg
+          class="cookieIcon"
+          width="32"
+          height="32"
+          viewBox="0 0 120 120"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="60" cy="60" r="36" stroke="white" stroke-width="6" />
+          <path
+            d="M90 60a30 30 0 0 1-30 30"
+            stroke="white"
+            stroke-width="6"
+            stroke-linecap="round"
+          />
+          <circle cx="50" cy="50" r="4" fill="white" />
+          <circle cx="70" cy="45" r="4" fill="white" />
+          <circle cx="68" cy="70" r="4" fill="white" />
+        </svg>
+      </button>
     </main>
 
     <script type="module" src="js/app.js" defer></script>

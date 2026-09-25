@@ -1,234 +1,583 @@
-<!--BISMILLAHI RAHMAANI RAHIM-->
-
 <!doctype html>
 <html lang="en">
   <head>
-    
-        <title>ZeFeed | News At A Glance</title>
-
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>ZeFeed | Tech news, at a glance</title>
+    <link rel="stylesheet" href="https://ui.scybud.com/css/variables.css" />
 
-    <link rel="stylesheet" href="https://scybud.github.io/scybud-ui/css/variables.css">
     <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" href="css/home.css" />
-<link rel="stylesheet" href="css/components/spotlight.css">
-<link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.css" />
+    <style>
+      :root[data-theme="light"] {
+        --bg-primary: #fbfbf9;
+        --bg-secondary: #f0f2ef;
+        --surface-primary: #ffffff;
+        --surface-secondary: #f5f6f4;
+        --text-primary: #14171a;
+        --text-secondary: #3f474d;
+        --muted: #6b7178;
+        --border-primary: #dfe3e6;
+        --border-secondary: #ccd2d6;
+        --hover-bg: #eef1ef;
+        --active: #e3e7e4;
+      }
 
-    <!--FAVICONS-->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
-<link rel="manifest" href="site.webmanifest">
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        font-family: var(--font-primary);
+        font-weight: var(--font-normal);
+        -webkit-font-smoothing: antialiased;
+      }
+      a {
+        color: inherit;
+      }
+      img {
+        max-width: 100%;
+      }
+      h1,
+      h2,
+      h3 {
+        font-weight: var(--font-bold);
+        line-height: 1.1;
+        margin: 0;
+      }
+      p {
+        color: var(--text-secondary);
+        line-height: 1.4;
+        margin: 0;
+      }
+      .text-muted {
+        color: var(--muted);
+      }
 
-<!-- Primary Meta Tags -->
-<meta name="title" content="ZeFeed | Tech News At A Glance">
-<meta name="description" content="ZeFeed delivers fast, clean summaries of the latest tech news from trusted sources like The Verge, TechCrunch, Ars Technica, and more — all in one place.">
-<meta name="keywords" content="tech news, AI news, startup news, gadget news, technology summaries, ZeFeed, daily tech updates, tech headlines">
-<meta name="author" content="ZeFeed">
+      .wrap {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 0 var(--space-lg);
+      }
 
-<!-- Canonical URL -->
-<link rel="canonical" href="https://zefeed.vercel.app">
+      /* ---------- Scybud UI: buttons ---------- */
+      .btn {
+        max-width: fit-content;
+        display: inline-block;
+        font-family: var(--font-primary);
+        font-size: var(--text-sm);
+        font-weight: var(--font-semibold);
+        padding: 12px var(--space-lg);
+        border-radius: var(--radius-sm);
+        border: 1px solid transparent;
+        text-decoration: none;
+        cursor: pointer;
+        transition:
+          background var(--transition-fast),
+          border-color var(--transition-fast);
+      }
+      .btn-primary {
+        background: var(--primary);
+        color: #06140d;
+      }
+      .btn-primary:hover {
+        background: var(--primary-light);
+      }
+      .btn-secondary {
+        background: transparent;
+        border-color: var(--border-primary);
+        color: var(--text-primary);
+      }
+      .btn-secondary:hover {
+        background: var(--hover-bg);
+      }
+      .btn-pill {
+        border-radius: 999px;
+      }
+      .btn-no-bg {
+        background: transparent;
+        color: var(--text-secondary);
+        padding: 12px var(--space-md);
+      }
+      .btn-no-bg:hover {
+        color: var(--text-primary);
+      }
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://zefeed.vercel.app">
-<meta property="og:title" content="ZeFeed | Tech News At A Glance">
-<meta property="og:description" content="Instant tech news summaries from top sources — fast, clean, and distraction‑free.">
-<meta property="og:image" content="https://zefeed.vercel.app/assets/images/zefeed-logo.png">
+      /* ---------- nav ---------- */
+      nav {
+        position: sticky;
+        top: env(safe-area-inset-top, 0px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: var(--space-md) var(--space-lg);
+        background: color-mix(in srgb, var(--bg-primary) 85%, transparent);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--border-primary);
+        z-index: 100;
+      }
+      .logo {
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://zefeed.vercel.app">
-<meta name="twitter:title" content="ZeFeed | Tech News At A Glance">
-<meta name="twitter:description" content="Stay updated with quick tech news summaries from across the web.">
-<meta name="twitter:image" content="https://zefeed.vercel.app/assets/images/zefeed-logo.png">
+        font-size: var(--text-lg);
+      }
+      
+      .nav-links {
+        display: flex;
+        gap: var(--space-xl);
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+      }
+      .nav-links a {
+        text-decoration: none;
+      }
+      .nav-links a:hover {
+        color: var(--text-primary);
+      }
+      @media (max-width: 640px) {
+        .nav-links {
+          display: none;
+        }
+      }
 
-<!-- Robots -->
-<meta name="robots" content="index, follow">
-<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+      /* ---------- hero ---------- */
+      header.hero {
+        padding: 72px 0 var(--space-xl);
+      }
+      .hero h1 {
+        font-size: clamp(2.2rem, 5.4vw, var(--text-4xl));
+        font-size: clamp(2.2rem, 5.4vw, 3.4rem);
+        letter-spacing: -0.02em;
+        max-width: 15ch;
+        margin-bottom: var(--space-md);
+      }
+      .hero p {
+        font-size: var(--text-lg);
+        max-width: 46ch;
+        margin-bottom: var(--space-xl);
+        line-height: 1.5;
+      }
+      .hero-actions {
+        display: flex;
+        align-items: center;
+        gap: var(--space-md);
+        flex-wrap: wrap;
+      }
+      .hero-note {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        color: var(--muted);
+      }
 
-<!-- Theme Color (for mobile browsers) -->
-<meta name="theme-color" content="#000000">
+      /* ---------- ticker ---------- */
+      .ticker-frame {
+        margin-top: var(--space-xl);
+        border: 1px solid var(--border-primary);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        background: var(--surface-primary);
+        box-shadow: var(--shadow);
+      }
+      .ticker-head {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        padding: var(--space-sm) var(--space-md);
+        border-bottom: 1px solid var(--border-primary);
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        color: var(--muted);
+      }
+      .live-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--primary);
+        animation: pulse 2.4s ease-in-out infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.35;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .live-dot {
+          animation: none;
+        }
+      }
+      .ticker-row {
+        display: grid;
+        grid-template-columns: 90px 70px 1fr;
+        gap: var(--space-md);
+        align-items: baseline;
+        padding: var(--space-md);
+        border-bottom: 1px solid var(--border-primary);
+        font-size: var(--text-sm);
+        transition: background var(--transition-fast);
+      }
+      .ticker-row:hover {
+        background: var(--hover-bg);
+      }
+      .ticker-row:last-child {
+        border-bottom: none;
+      }
+      .ticker-time {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        color: var(--muted);
+      }
+      .ticker-cat {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        text-transform: lowercase;
+      }
+      .cat-ai {
+        color: var(--primary);
+      }
+      .cat-tech {
+        color: var(--blue);
+      }
+      .ticker-title {
+        color: var(--text-primary);
+      }
+      @media (max-width: 560px) {
+        .ticker-row {
+          grid-template-columns: 1fr;
+          gap: var(--space-xs);
+        }
+      }
 
-<!-- Structured Data: Website -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "NewsMediaOrganization",
-  "name": "ZeFeed",
-  "url": "https://zefeed.vercel.app/explore",
-  "description": "ZeFeed summarizes the latest tech news from top sources into fast, readable briefs.",
-  "image": "https://zefeed.vercel.app/assets/images/zefeed-logo.png",
-  "publisher": {
-    "@type": "Organization",
-    "name": "ZeFeed",
-    "url": "https://zefeed.vercel.app",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://zefeed.vercel.app/assets/images/zefeed-logo.png"
-    }
-  }
-}
-</script>
+      /* ---------- pages section ---------- */
+      section.pages {
+        padding: 88px 0;
+        border-top: 1px solid var(--border-primary);
+      }
+      .section-head {
+        max-width: 52ch;
+        margin-bottom: var(--space-xl);
+      }
+      .section-head h2 {
+        font-size: var(--text-3xl);
+        letter-spacing: -0.01em;
+        margin-bottom: var(--space-sm);
+      }
+      .section-head p {
+        font-size: var(--text-md);
+      }
 
-<meta name="google-site-verification" content="3Q0Mp0XF0LJi9tj8iCsgLCCFnc64-D40epLWLba5Xcw" />
+      .page-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-md);
+      }
+      .page-card {
+        background: var(--surface-primary);
+        border: 1px solid var(--border-primary);
+        border-radius: var(--radius-md);
+        padding: var(--space-lg);
+        transition: border-color var(--transition-fast);
+      }
+      .page-card:hover {
+        border-color: var(--border-secondary);
+      }
+      .page-card .tag {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        color: var(--muted);
+        margin-bottom: var(--space-md);
+      }
+      .page-card h3 {
+        font-size: var(--text-lg);
+        margin-bottom: var(--space-sm);
+      }
+      .page-card p {
+        font-size: var(--text-sm);
+        line-height: 1.5;
+      }
+      .swatch {
+        width: 24px;
+        height: 24px;
+        border-radius: var(--radius-sm);
+        margin-bottom: var(--space-md);
+      }
+      @media (max-width: 760px) {
+        .page-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ---------- glance demo ---------- */
+      section.demo {
+        padding: 0 0 96px;
+      }
+      .demo-shell {
+        border: 1px solid var(--border-primary);
+        border-radius: var(--radius-lg);
+        background: var(--surface-primary);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        box-shadow: var(--shadow);
+      }
+      .demo-col {
+        padding: var(--space-xl) var(--space-lg);
+      }
+      .demo-col + .demo-col {
+        border-left: 1px solid var(--border-primary);
+      }
+      .demo-label {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        color: var(--muted);
+        margin-bottom: var(--space-md);
+      }
+      .demo-headline {
+        font-size: var(--text-lg);
+        font-weight: var(--font-semibold);
+        line-height: 1.4;
+        margin-bottom: var(--space-sm);
+      }
+      .demo-body {
+        font-size: var(--text-sm);
+        line-height: 1.55;
+      }
+      @media (max-width: 700px) {
+        .demo-shell {
+          grid-template-columns: 1fr;
+        }
+        .demo-col + .demo-col {
+          border-left: none;
+          border-top: 1px solid var(--border-primary);
+        }
+      }
+
+      /* ---------- footer ---------- */
+      footer {
+        border-top: 1px solid var(--border-primary);
+        padding: var(--space-xl) 0;
+      }
+      .footer-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: var(--space-md);
+      }
+      .footer-note {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        color: var(--muted);
+      }
+      .footer-note a {
+        text-decoration: none;
+        border-bottom: 1px dotted var(--border-primary);
+      }
+    </style>
   </head>
-
   <body>
-      <button class="toggleSidebar">
-        <svg
-          width="22"
-          height="22"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-        >
-          <line x1="4" y1="7" x2="20" y2="7" />
-          <line x1="4" y1="12" x2="20" y2="12" />
-          <line x1="4" y1="17" x2="20" y2="17" />
-        </svg>
-      </button>
+    <nav>
+      <div class="logo">Ze<span>Feed</span></div>
+      <div class="nav-links">
+        <a href="#pages">Home · Explore · History</a>
+        <a href="#demo">How it reads</a>
+      </div>
+      <a
+        class="btn btn-primary btn-pill"
+        href="https://zefeed.vercel.app"
+        target="_blank"
+        rel="noopener"
+        >Open ZeFeed</a
+      >
+    </nav>
 
-    <main class="main">
-      <aside class="sidebar">
-        <header class="sidebarHeader">
-          <div class="logo">Ze<span>Feed</span></div>
-        </header>
-<div class="divider"></div> 
-
-        <nav class="sidebarNav">
-          <a href="index.html" class="navBtn">Home</a>
-          <a href="explore.html" class="navBtn">Explore</a>
-                    <a href="history.html" class="navBtn">Histories</a>
-
-        </nav>
-      </aside>
-
-      <div class="mainContent">
-        <div class="contentHeader">
-          <h1 class="pageTitle">Quick Briefs</h1>
-
-          <div id="audio-reader-bar">
-            <div class="audioControl">
-              <button id="reader-prev-btn" class="audioControlBtn" aria-label="Previous article">⏮</button>
-              <button id="reader-play-btn" class="primary audioControlBtn" aria-label="Play news reader">▶</button>
-              <button id="reader-next-btn" class="audioControlBtn" aria-label="Next article">⏭</button>
-              <span id="reader-position"></span>
-            </div>
-
-            <div class="audioMeta">
-              <a href="#" id="reader-title"></a>
-            </div>
-</div>
+    <div class="wrap">
+      <header class="hero">
+        <h1>Tech, distilled to the part worth reading.</h1>
+        <p>
+          ZeFeed pulls straight from OpenAI, DeepMind, Anthropic, Hugging Face,
+          TechCrunch and Ars Technica, and boils each story down to a few lines
+          you can read in passing. Want more? Open the article.
+        </p>
+        <div class="hero-actions">
+          <a
+            class="btn btn-primary"
+            href="https://zefeed.vercel.app"
+            target="_blank"
+            rel="noopener"
+            >Open ZeFeed →</a
+          >
+          <a class="btn btn-no-bg" href="#pages">See what's inside</a>
+          <span class="hero-note">no signup required</span>
         </div>
-        <p class="mutedText"><span class="summaryCount">Loading...</span> summaries</p>
 
-        <div class="mainContentInner">
-
-          <section class="summariesFeed">
-            <article class="summaryCard">
-              <div class="summaryTop">
-              <span class="skeletonSource skeletonItem"></span>
-              <span class="dot">•</span>
-              <span class="skeletonTime skeletonItem"></span>
+        <div class="ticker-frame">
+          <div class="ticker-head">
+            <span class="live-dot"></span> live feed (10)
+          </div>
+          <div class="tickerRows">
+            <div class="ticker-row">
+              <span class="ticker-title text-muted"
+                >Loading latest stories…</span
+              >
             </div>
+          </div>
+        </div>
+      </header>
 
-            <h2 class="skeletonHeadline skeletonItem"></h2>
-
-            <p class="skeletonSummary skeletonItem">
-            
+      <section class="pages" id="pages">
+        <div class="section-head">
+          <h2>Three ways to read.</h2>
+          <p>
+            Skim, dig in, or look back. ZeFeed splits reading into the mode
+            you're actually in.
+          </p>
+        </div>
+        <div class="page-grid">
+          <div class="page-card">
+            <div class="swatch" style="background: var(--primary)"></div>
+            <div class="tag">home</div>
+            <h3>Quick summaries</h3>
+            <p>
+              A running feed of short, plain-language takes on what just
+              happened. Built for the ten seconds between things.
             </p>
-            <a href="#" class="skeletonSourceUrl" target="_blank" rel="noopener">
-      Read on <span class="skeletonSourceNameUrl"></span> →
-    </a>
-          </article>
-
-          <article class="summaryCard">
-            <div class="summaryTop">
-              <span class="skeletonSource skeletonItem"></span>
-              <span class="dot">•</span>
-              <span class="skeletonTime skeletonItem"></span>
-            </div>
-
-            <h2 class="skeletonHeadline skeletonItem"></h2>
-
-            <p class="skeletonSummary skeletonItem">
-             
+          </div>
+          <div class="page-card">
+            <div class="swatch" style="background: var(--blue)"></div>
+            <div class="tag">explore</div>
+            <h3>Full articles</h3>
+            <p>
+              The same stories, with images and the original piece one tap away,
+              for when a headline earns more of your time.
             </p>
-              <a href="#" class="skeletonSourceUrl" target="_blank" rel="noopener">
-      Read on <span class="skeletonSourceNameUrl"></span> →
-    </a>
-          </article>
-        </section>
-        
-        <section class="infoContainer spotlightWidget">
-          <div class="tag">Promotion</div>
-  <div class="product-card" id="productCard">
+          </div>
+          <div class="page-card">
+            <div class="swatch" style="background: var(--primary-light)"></div>
+            <div class="tag">history</div>
+            <h3>Tech history</h3>
+            <p>
+              Flashcards of moments worth knowing, shuffled from a growing
+              archive. A minute of context, any time.
+            </p>
+          </div>
+        </div>
+      </section>
 
-  <img alt="Product Logo" src="https://loghue.com/assets/images/loghue-logo.png" class="productLogo" id="productLogo">
-
-  <h2 id="productName">LogHue</h2>
-
-  <h3 id="productTitle">
-    Boost your productivity without complexity
-  </h3>
-
-  <p id="productDesc">
-    LogHue is a freemium workspace platform built to help you manage tasks, stay organized, and actually get things done.
-  </p>
-
-  <div id="productFeatures"></div>
-
-  <a href="https://loghue.com" target="_blank" rel="noopener" class="productCtaBtn primary" id="ctaPrimary">
-    Try LogHue
-  </a>
-
-</div>
-  
-</section>
-</div>
-</div>
-
-
-<!--CONCENT BANNER-->
-<div id="consentBanner" class="consentBanner">
-  <div class="consent-content">
-    <h3>We use cookies</h3>
-    <p>
-      We use cookies to improve your experience, analyze usage, and enhance our services.
-      You can choose what you allow.
-    </p>
-
-    <div class="consent-actions">
-      <button id="acceptConcent" class="btn-sm btn primary">Accept All</button>
-      <button id="rejectConcent" class="btn-sm btn secondary">Reject All</button>
+      <section class="demo" id="demo">
+        <div class="section-head">
+          <h2>What a glance actually looks like.</h2>
+          <p>
+            Every story gets a summary first. The full piece is never more than
+            a tap away.
+          </p>
+        </div>
+        <div class="demo-shell">
+          <div class="demo-col">
+            <div class="demo-label">on ZeFeed</div>
+            <p class="demo-headline">
+              Hugging Face ships a smaller open model tuned for on-device
+              inference.
+            </p>
+            <p class="demo-body">
+              Runs on phone-class hardware, trades some benchmark ground for
+              latency. Weights are open now.
+            </p>
+          </div>
+          <div class="demo-col">
+            <div class="demo-label">the original article</div>
+            <p class="demo-headline">
+              1,400 words, three benchmark tables, a training-run retrospective.
+            </p>
+            <p class="demo-body">
+              Worth the read when the topic matters to you. Open it straight
+              from the same card.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
-  </div>
-</div>
 
-<button title="Edit consent choice" class="editConcentBtn" id="editConcentBtn" type="button">
-<svg class="cookieIcon" width="32" height="32" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="60" cy="60" r="36" stroke="white" stroke-width="6"/>
-  <path d="M90 60a30 30 0 0 1-30 30" stroke="white" stroke-width="6" stroke-linecap="round"/>
-  <circle cx="50" cy="50" r="4" fill="white"/>
-  <circle cx="70" cy="45" r="4" fill="white"/>
-  <circle cx="68" cy="70" r="4" fill="white"/>
-</svg>
-</button>
+    <footer>
+      <div class="wrap footer-row">
+        <span class="footer-note"
+          >ZeFeed — a <a href="#">Scybud</a> product</span
+        >
+        <span class="footer-note">also building <a href="#">LogHue</a></span>
+      </div>
+    </footer>
 
-<footer class="footer">
-  <a href="https://marketingdb.live" target="_blank"><img src="https://marketingdb.live/badge.svg" alt="Listed on MarketingDB" width="190" height="44"/></a>
- </footer>
-</main>
+    <script type="module">
+      import {supabase} from "/js/supabase.js"
 
+      // Ported from utils/time.js
+      function formatTimeAgo(dateString) {
+        const date = new Date(dateString);
+        const diffMs = new Date() - date;
+        const minutes = Math.floor(diffMs / 60000);
+        const hours = Math.floor(minutes / 60);
+        const days = Math.floor(hours / 24);
 
-    <script type="module" src="js/app.js" defer></script>
+        if (minutes < 1) return "Just now";
+        if (minutes < 60) return `${minutes}m ago`;
+        if (hours < 24) return `${hours}h ago`;
+        if (days < 7) return `${days}d ago`;
+        return date.toLocaleDateString("en-GB");
+      }
 
-    <script type="module" src="js/home.js" defer></script>
-    <script type="module" src="js/components/spotlight.js" defer></script>
+      // Same AI/tech split as render/feedBlocks.js
+      function isAI(category) {
+        const c = (category || "").toLowerCase();
+        return (
+          c.includes("ai") ||
+          c.includes("artificial intelligence") ||
+          c.includes("machine learning")
+        );
+      }
+
+      function tickerRow(article) {
+        const row = document.createElement("div");
+        row.className = "ticker-row";
+        row.innerHTML = `
+      <span class="ticker-time">${formatTimeAgo(article.published_at)}</span>
+      <span class="ticker-cat ${isAI(article.category) ? "cat-ai" : "cat-tech"}">${isAI(article.category) ? "ai" : "tech"}</span>
+      <span class="ticker-title">${article.title}</span>
+    `;
+        return row;
+      }
+
+      async function loadTicker() {
+        const container = document.querySelector(".tickerRows");
+        if (!container) return;
+
+        const { data, error } = await supabase
+          .from("articles")
+          .select("source, published_at, title, category")
+          .order("published_at", { ascending: false })
+          .limit(10);
+
+        if (error) {
+          console.error("Failed to load live feed:", error);
+          container.innerHTML = `<div class="ticker-row"><span class="ticker-title text-muted">Couldn't load the live feed right now.</span></div>`;
+          return;
+        }
+
+        if (!data || data.length === 0) {
+          container.innerHTML = `<div class="ticker-row"><span class="ticker-title text-muted">Nothing new yet.</span></div>`;
+          return;
+        }
+
+        container.innerHTML = "";
+        data.forEach((article) => container.appendChild(tickerRow(article)));
+      }
+
+      window.addEventListener("DOMContentLoaded", loadTicker);
+    </script>
   </body>
 </html>
-<!--ALHAMDULILLAHI RABBIL AHLAMIN-->

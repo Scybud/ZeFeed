@@ -3,16 +3,16 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>History | ZeFeed</title>
+    <title>ZeFeed | News At A Glance</title>
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="https://ui.scybud.com/css/variables.css" />
     <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/history.css" />
+    <link rel="stylesheet" href="css/home.css" />
     <link rel="stylesheet" href="css/components/spotlight.css" />
+    <link rel="stylesheet" href="css/main.css" />
 
     <!--FAVICONS-->
     <link
@@ -38,7 +38,7 @@
     <meta name="title" content="ZeFeed | Tech News At A Glance" />
     <meta
       name="description"
-      content="Explore fascinating moments in tech history through fast, swipeable flashcards and timelines."
+      content="ZeFeed delivers fast, clean summaries of the latest tech news from trusted sources like The Verge, TechCrunch, Ars Technica, and more — all in one place."
     />
     <meta
       name="keywords"
@@ -47,15 +47,15 @@
     <meta name="author" content="ZeFeed" />
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://zefeed.vercel.app/history" />
+    <link rel="canonical" href="https://zefeed.vercel.app" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://zefeed.vercel.app/history" />
+    <meta property="og:url" content="https://zefeed.vercel.app" />
     <meta property="og:title" content="ZeFeed | Tech News At A Glance" />
     <meta
       property="og:description"
-      content="Explore fascinating moments in tech history through fast, swipeable flashcards and timelines."
+      content="Instant tech news summaries from top sources — fast, clean, and distraction‑free."
     />
     <meta
       property="og:image"
@@ -64,11 +64,11 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://zefeed.vercel.app/history" />
+    <meta name="twitter:url" content="https://zefeed.vercel.app" />
     <meta name="twitter:title" content="ZeFeed | Tech News At A Glance" />
     <meta
       name="twitter:description"
-      content="Explore fascinating moments in tech history through fast, swipeable flashcards and timelines."
+      content="Stay updated with quick tech news summaries from across the web."
     />
     <meta
       name="twitter:image"
@@ -92,7 +92,7 @@
         "@type": "NewsMediaOrganization",
         "name": "ZeFeed",
         "url": "https://zefeed.vercel.app/explore",
-        "description": "Explore fascinating moments in tech history through fast, swipeable flashcards and timelines.",
+        "description": "ZeFeed summarizes the latest tech news from top sources into fast, readable briefs.",
         "image": "https://zefeed.vercel.app/assets/images/zefeed-logo.png",
         "publisher": {
           "@type": "Organization",
@@ -144,71 +144,85 @@
       </aside>
 
       <div class="mainContent">
-        <h1 class="pageTitle">Tech History</h1>
-        <p class="mutedText">
-          <span class="historyCount">Loading...</span> Tech Histories
-        </p>
-        <div class="viewSwitcher">
-          <button class="viewBtn active" data-view="cards">Flashcards</button>
+        <div class="contentHeader">
+          <h1 class="pageTitle">Quick Briefs</h1>
 
-          <button class="viewBtn" data-view="table">Table</button>
+          <div id="audio-reader-bar">
+            <div class="audioControl">
+              <button
+                id="reader-prev-btn"
+                class="audioControlBtn"
+                aria-label="Previous article"
+              >
+                ⏮
+              </button>
+              <button
+                id="reader-play-btn"
+                class="primary audioControlBtn"
+                aria-label="Play news reader"
+              >
+                ▶
+              </button>
+              <button
+                id="reader-next-btn"
+                class="audioControlBtn"
+                aria-label="Next article"
+              >
+                ⏭
+              </button>
+              <span id="reader-position"></span>
+            </div>
+
+            <div class="audioMeta">
+              <a href="#" id="reader-title"></a>
+            </div>
+          </div>
         </div>
+        <p class="mutedText">
+          <span class="summaryCount">Loading...</span> summaries
+        </p>
+
         <div class="mainContentInner">
-          <section class="historiesFeed">
-            <section class="flashcardsView activeView">
-              <div class="flashCardContainer">
-                <div class="flashCard">
-                  <div class="cardTop">
-                    <span class="yearBadge skeletonItem">1969</span>
-                    <span class="categoryBadge skeletonItem">Space</span>
-                  </div>
-
-                  <div class="cardContent">
-                    <h2 class="historyTitle skeletonItem">
-                      Apollo 11 lands on the Moon
-                    </h2>
-
-                    <p class="historyFact skeletonItem">
-                      Neil Armstrong and Buzz Aldrin become the first humans to
-                      walk on the Moon.
-                    </p>
-                  </div>
-
-                  <div class="cardBottom">
-                    <span class="source skeletonItem">NASA History</span>
-
-                    <div class="cardActions">
-                      <button class="prevBtn">←</button>
-                      <button class="nextBtn">→</button>
-                    </div>
-                  </div>
-                </div>
+          <section class="summariesFeed">
+            <article class="summaryCard">
+              <div class="summaryTop">
+                <span class="skeletonSource skeletonItem"></span>
+                <span class="dot">•</span>
+                <span class="skeletonTime skeletonItem"></span>
               </div>
-            </section>
 
-            <section class="tableView">
-              <table class="historyTable">
-                <thead>
-                  <tr>
-                    <th>Year</th>
-                    <th>Event</th>
-                    <th>Category</th>
-                    <th>Source</th>
-                  </tr>
-                </thead>
+              <h2 class="skeletonHeadline skeletonItem"></h2>
 
-                <tbody>
-                  <tr>
-                    <td>1969</td>
-                    <td>Apollo 11 lands on the Moon</td>
-                    <td>
-                      <span class="categoryChip"> Space </span>
-                    </td>
-                    <td>NASA History</td>
-                  </tr>
-                </tbody>
-              </table>
-            </section>
+              <p class="skeletonSummary skeletonItem"></p>
+              <a
+                href="#"
+                class="skeletonSourceUrl"
+                target="_blank"
+                rel="noopener"
+              >
+                Read on <span class="skeletonSourceNameUrl"></span> →
+              </a>
+            </article>
+
+            <article class="summaryCard">
+              <div class="summaryTop">
+                <span class="skeletonSource skeletonItem"></span>
+                <span class="dot">•</span>
+                <span class="skeletonTime skeletonItem"></span>
+              </div>
+
+              <h2 class="skeletonHeadline skeletonItem"></h2>
+
+              <p class="skeletonSummary skeletonItem"></p>
+              <a
+                href="#"
+                class="skeletonSourceUrl"
+                target="_blank"
+                rel="noopener"
+              >
+                Read on <span class="skeletonSourceNameUrl"></span> →
+              </a>
+            </article>
           </section>
 
           <section class="infoContainer spotlightWidget">
@@ -294,10 +308,21 @@
           <circle cx="68" cy="70" r="4" fill="white" />
         </svg>
       </button>
+
+      <footer class="footer">
+        <a href="https://marketingdb.live" target="_blank"
+          ><img
+            src="https://marketingdb.live/badge.svg"
+            alt="Listed on MarketingDB"
+            width="190"
+            height="44"
+        /></a>
+      </footer>
     </main>
 
     <script type="module" src="js/app.js" defer></script>
-    <script type="module" src="js/history.js" defer></script>
+
+    <script type="module" src="js/home.js" defer></script>
     <script type="module" src="js/components/spotlight.js" defer></script>
   </body>
 </html>
