@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://zefeed.vercel.app/</loc>
+    <loc>https://zefeed.scybud.com/</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://zefeed.vercel.app/explore</loc>
+    <loc>https://zefeed.scybud.com/explore</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://zefeed.vercel.app/history</loc>
+    <loc>https://zefeed.scybud.com/history</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>

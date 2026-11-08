@@ -56,6 +56,7 @@ function setupNavigation() {
     }
 
     renderHistoryCard();
+    window.ScybudPromo?.track("history_read");
   });
 
   prevBtn.addEventListener("click", () => {

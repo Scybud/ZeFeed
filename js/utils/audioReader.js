@@ -120,6 +120,8 @@ export class AudioReader {
       this.stop();
       this.onQueueEnd();
     }
+    
+        window.ScybudPromo?.track("history_read");
   }
 
   previous() {
